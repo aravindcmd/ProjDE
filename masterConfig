@@ -1,0 +1,67 @@
+#core site
+
+
+<configuration>
+<property>
+<name>fs.default.name</name>
+<value>hdfs://group4-master:9000</value>
+</property>
+</configuration>
+
+#hdfs site
+<configuration>
+<property>
+<name>dfs.namenode.name.dir</name>
+<value>/home/ubuntu/metadata/namenode-dir</value>
+</property>
+<property>
+<name>dfs.datanode.data.dir</name>
+<value>/home/ubuntu/metadata/datanode-dir</value>
+</property>
+</configuration>
+
+# yarn
+<configuration>
+<property>
+<name>yarn.nodemanager.aux-services</name> <value>mapreduce_shuffle</value>
+</property>
+<property>
+<name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+<value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>
+<property>
+<description>The hostname of the RM.</description>
+<name>yarn.resourcemanager.hostname</name>
+<value>group4-master</value>
+</property>
+<property>
+<description>The address of the applications manager interface in the RM.</description>
+<name>yarn.resourcemanager.address</name>
+<value>group4-master:8032</value>
+</property>
+</configuration>
+
+#mapred site
+<configuration>
+<property>
+<name>mapreduce.framework.name</name>
+<value>yarn</value>
+</property>
+</configuration>
+
+#env of hadoop , mapred , yarn
+export JAVA_HOME=/home/ubuntu/jdk8
+
+workers                                                                               
+group4-master
+group4-worker1
+
+#masters
+group4-master
+
+.bashrc file
+export JAVA_HOME=/home/ubuntu/jdk8
+export PATH=$JAVA_HOME/bin:$PATH
+
+
+
